@@ -1,38 +1,383 @@
+/* General styling */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  height: 100vh;
+  background-color: #f0f0f0;
+  color: #333;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
+/* Header styling */
+.header {
   background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 20px;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.header h1 {
+  margin: 0;
 }
 
-@keyframes App-logo-spin {
+/* Navbar styling */
+.navbar {
+  background-color: #333;
+  padding: 10px;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar li {
+  margin: 0 15px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+
+.navbar a:hover,
+.navbar a:focus {
+  background-color: #575757;
+  border-radius: 5px;
+}
+
+/* Home section container */
+.home-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+/* About Me section styling */
+.about-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.775);
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 15px; /* Reduced padding */
+  margin: 20px auto; /* Centered with auto margins */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 400px; /* Set a max-width to shrink the container */
+}
+
+.profile-image {
+  width: 120px; /* Slightly reduced width */
+  height: 120px; /* Slightly reduced height */
+  border-radius: 50%;
+  margin-bottom: 15px;
+  border: 2px solid #f39c12;
+}
+
+/* Typing text styling */
+.typing-effect {
+  font-size: 2rem;
+  text-align: center;
+  color: white; /* Change color to white */
+}
+
+.typing-text {
+  font-size: 2.5em;
+  color: white; /* Change color to white */
+}
+
+/* Highlighting the name */
+.highlight {
+  color: #f39c12;
+  font-weight: bold;
+}
+
+/* Skills section styling */
+.skills-section {
+  background-color: rgba(255, 255, 255, 0.137);
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px auto; /* Centered with auto margins */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 500px; /* Set a max-width to shrink the container */
+}
+
+.skills-category {
+  margin: 15px 0;
+}
+
+.skills-category h3 {
+  color: #f4f8ff;
+  margin-bottom: 10px;
+}
+
+.skills-category ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.skills-category li {
+  font-size: 1.1em;
+  color: #f9f9f9;
+  margin: 0 10px;
+}
+
+ /* Contact section styling */
+/* Contact section styling */
+.contact-section {
+  background-color: rgba(255, 251, 251, 0.074); /* Slightly opaque white background */
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 8px; /* Rounded corners */
+  padding: 15px; /* Reduced padding around the content */
+  margin: 20px auto; /* Centered with auto margins */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  text-align: center; /* Center the text */
+  backdrop-filter: blur(5px); /* Slight blur effect */
+  max-width: 400px; /* Reduced max-width for the container */
+}
+
+.contact-section h2 {
+  color: white; /* Change heading color to white */
+  margin-bottom: 10px; /* Reduced space below the title */
+}
+
+.contact-section label {
+  color: white; /* Change label color to white */
+  font-size: 1em; /* Standard font size for labels */
+  margin: 5px 0; /* Reduced space around labels */
+}
+
+.contact-section p {
+  font-size: 1em; /* Adjusted font size for readability */
+  color: #ffffff; /* Medium gray for text */
+  margin-bottom: 15px; /* Reduced space below the paragraph */
+}
+
+.contact-form {
+  display: flex; /* Flexbox for layout */
+  flex-direction: column; /* Vertical stacking */
+  align-items: center; /* Center align items */
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 60%; /* Adjusted width to 60% */
+  max-width: 350px; /* Further reduced max width for input fields */
+  padding: 8px; /* Reduced padding inside the fields */
+  margin-bottom: 10px; /* Reduced space below fields */
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 4px; /* Slightly rounded corners */
+  font-size: 1em; /* Standard font size */
+  color: rgb(31, 31, 31); /* Change text color to white */
+  background-color: rgb(255, 255, 255); /* Optional: dark background for better contrast */
+}
+
+.contact-form textarea {
+  height: 50px; /* Further adjusted height for the message textarea */
+}
+
+.contact-form button {
+  background-color: #f39c12; /* Orange background */
+  color: white; /* White text */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px 20px; /* Padding for button */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 1em; /* Standard font size */
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+.contact-form button:hover {
+  background-color: #e67e22; /* Darker orange on hover */
+}
+
+.contact-section p.success-message {
+  color: #2ecc71; /* Green color for success message */
+  margin-top: 15px; /* Space above the message */
+}
+
+
+/* Projects section styling */
+.projects-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px;
+}
+
+/* Individual project container */
+.project-container {
+  background-color: rgba(255, 255, 255, 0.337);
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 15px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for project containers */
+.project-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Project title styling */
+.project-title {
+  font-size: 1.5em;
+  color: rgb(255, 255, 255);
+  margin-bottom: 10px;
+}
+
+/* Project description styling */
+.project-description {
+  font-size: 1em;
+  color: rgb(255, 252, 252);
+}
+
+/* View button styling */
+.view-button {
+  display: inline-block;
+  background-color: #f39c12;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-top: 10px;
+  cursor: default;
+}
+
+/* Source button styling */
+.source-button {
+  display: inline-block;
+  background-color: #2ecc71;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-top: 10px;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.source-button:hover {
+  background-color: #27ae60;
+}
+
+/* Footer styling */
+.footer {
+  background-color: #282c34;
+  color: white;
+  padding: 10px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+.social-logo {
+  width: 30px;
+  height: auto;
+  vertical-align: middle;
+  margin: 0 5px;
+}
+
+/* Typing effect styling */
+.typing-effect {
+  color: white;
+  font-size: 2em;
+  text-align: center;
+  margin: 20px 0;
+  font-weight: bold;
+}
+
+.typing-effect span {
+  color: white !important;
+}
+
+/* Full-width header, no gap at the top */
+.header {
+  font-size: 2em;
+  font-weight: bold;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  text-align: center;
+  width: 100%;
+  margin: 0;
+  position: relative;
+  z-index: 2;
+}
+
+/* Animation keyframes for typing effect */
+@keyframes typing {
   from {
-    transform: rotate(0deg);
+    width: 0;
   }
   to {
-    transform: rotate(360deg);
+    width: 100%;
   }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* Video background styles */
+.background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* Overlay styles */
+.overlay {
+  position: relative;
+  z-index: 1;
+}
+
+/* Email Me button styling */
+.email-button {
+  display: inline-block;
+  background-color: #007bff; /* Bootstrap Primary Color */
+  color: white; /* White text */
+  padding: 10px 20px; /* Padding for the button */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor */
+  text-decoration: none; /* Remove underline */
+  font-size: 1.2em; /* Font size */
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.email-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
 }
