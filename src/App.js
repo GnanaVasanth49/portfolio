@@ -5,6 +5,8 @@ import githubLogo from './assets/github.png';
 import linkedinLogo from './assets/LinkedIn_Logo.png';
 import profileImage from './assets/Gnana vasanth.jpg';
 import backgroundVideo from './assets/videos/background video.mp4';
+import languagesLogo from './assets/logo.png';
+import nonTechnicalSkillsLogo from './assets/softskills.png';
 
 function TypingAnimation({ phrases, typingSpeed, deletingSpeed, delay }) {
   const [displayText, setDisplayText] = useState('');
@@ -47,11 +49,13 @@ function App() {
   const [currentSection, setCurrentSection] = useState('home');
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false); // State for hamburger menu
 
   const emailAddress = 'gnanavasanthg.ug22.cs@francisxavier.ac.in'; // Updated email
 
   const handleNavigation = (section) => {
     setCurrentSection(section);
+    setMenuOpen(false); // Close menu after navigation
   };
 
   const handleCalculatorView = () => {
@@ -69,7 +73,7 @@ function App() {
   // Handle form submission using EmailJS
   const handleSubmit = (e) => {
     e.preventDefault(); // Prevent the default form submission
-console.log(formData)
+    console.log(formData);
     // Use EmailJS to send the form data
     emailjs
       .send('service_bd7tly9', 'template_qxws4q3', formData, 'F-fle-qZLbXessrmp') // Use your User ID here
@@ -92,6 +96,10 @@ console.log(formData)
     window.open(gmailUrl, '_blank');
   };
 
+  const toggleMenu = () => {
+    setMenuOpen((prev) => !prev); // Toggle the menu
+  };
+
   const phrases = ['Software Engineer', 'Cyber Security Expert', 'Tech Enthusiast'];
   const greetingPhrase = ['Hello, I am', 'Gnana Vasanth'];
 
@@ -110,7 +118,12 @@ console.log(formData)
         </header>
 
         <nav className="navbar">
-          <ul>
+          <div className="hamburger" onClick={toggleMenu}>
+            <div className="bar"></div>
+            <div className="bar"></div>
+            <div className="bar"></div>
+          </div>
+          <ul className={`nav-links ${menuOpen ? 'active' : ''}`}>
             <li><a href="#home" onClick={() => handleNavigation('home')}>Home</a></li>
             <li><a href="#about" onClick={() => handleNavigation('about')}>About Me</a></li>
             <li><a href="#skills" onClick={() => handleNavigation('skills')}>Skills</a></li>
@@ -149,26 +162,19 @@ console.log(formData)
           ) : currentSection === 'skills' ? (
             <div className="skills-section">
               <h2>SKILLS</h2>
-              
+
+              {/* Languages Section */}
               <div className="skills-category">
                 <h3>LANGUAGES</h3>
-                <ul>
-                  <li>C</li>
-                  <li>Python</li>
-                  <li>Java</li>
-                  <li>HTML</li>
-                  <li>CSS</li>
-                </ul>
+                {/* Display the combined logo for languages */}
+                <img src={languagesLogo} alt="Languages" className="skills-category" />
               </div>
+
+              {/* Non-Technical Skills Section */}
               <div className="skills-category">
-                <h3>Non-Technical Skills</h3>
-                <ul>
-                  <li>Leadership</li>
-                  <li>Event Coordination</li>
-                  <li>Communication</li>
-                  <li>Teamwork</li>
-                  <li>Problem Solving</li>
-                </ul>
+                <h3>NON-TECHNICAL SKILLS</h3>
+                {/* Display the combined logo for non-technical skills */}
+                <img src={nonTechnicalSkillsLogo} alt="Non-Technical Skills" className="skills-category" />
               </div>
             </div>
           ) : currentSection === 'projects' ? ( // Projects section
@@ -209,11 +215,11 @@ console.log(formData)
                 <h3 style={{ color: 'white' }}>CYBER SECURITY AWARENESS APP </h3>
                 <p style={{ color: 'white' }}>
                   This application educates users about cybersecurity threats and safe practices through interactive quizzes and informative articles.
-                  It aims to raise awareness and enhance user security online.
+                  It aims to raise awareness and promote safe online behavior.
                 </p>
                 <button className="view-button">View</button>
                 <a
-                  href="https://github.com/GnanaVasanth49/Reactjs-learning"
+                  href="https://github.com/GnanaVasanth49/Cyber-Security-Awareness"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="source-button"
@@ -221,7 +227,6 @@ console.log(formData)
                   Source
                 </a>
               </div>
-              {/* Add more project containers as needed */}
             </div>
           ) : (
             <div className="contact-section">
@@ -267,10 +272,10 @@ console.log(formData)
               {/* Social Media Links */}
               <div className="social-links">
                 <a href="https://github.com/GnanaVasanth49">
-                  <img src={githubLogo} alt="GitHub" />
+                  <img src={githubLogo} alt="GitHub" className="social-logo" />
                 </a>
                 <a href="https://linkedin.com/in/GnanaVasanth49">
-                  <img src={linkedinLogo} alt="LinkedIn" />
+                  <img src={linkedinLogo} alt="LinkedIn" className="social-logo" />
                 </a>
               </div>
 
