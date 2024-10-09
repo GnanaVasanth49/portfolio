@@ -100,7 +100,6 @@ body {
   background-repeat: no-repeat;
   height: 100vh;
 }
-
 /* About Me section styling */
 .about-section {
   display: flex;
@@ -114,74 +113,124 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   max-width: 400px;
+
+  /* Animation properties */
+  opacity: 0; /* Start invisible */
+  transform: translateY(20px); /* Start slightly below */
+  animation: fadeIn 0.8s forwards; /* Animation name, duration, and fill mode */
+  animation-delay: 0.5s; /* Delay before animation starts */
 }
 
+/* Keyframes for fade-in animation */
+@keyframes fadeIn {
+  to {
+    opacity: 1; /* Fade to visible */
+    transform: translateY(0); /* Move to original position */
+  }
+}
+
+/* Mask effect for the profile image */
 .profile-image {
   width: 120px;
   height: 120px;
   border-radius: 50%;
   margin-bottom: 15px;
   border: 2px solid #f39c12;
+  overflow: hidden; /* Ensures the image fits within the circle */
+  position: relative; /* Create positioning context for the image */
 }
 
-/* Typing text styling */
-.typing-effect {
-  font-size: 2rem;
-  text-align: center;
-  color: white;
+/* Adding a mask effect */
+.profile-image img {
+  width: 100%; /* Ensure the image takes the full width */
+  height: auto; /* Maintain aspect ratio */
+  position: absolute; /* Position the image absolutely */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Move image to center */
+  opacity: 0; /* Start invisible */
+  animation: fadeInImage 1s forwards; /* Image fade-in animation */
+  animation-delay: 0.7s; /* Delay to start after section fades in */
 }
 
-.typing-text {
-  font-size: 2.5em;
-  color: white;
+/* Keyframes for image fade-in animation */
+@keyframes fadeInImage {
+  to {
+    opacity: 1; /* Fade to visible */
+  }
 }
 
-/* Highlighting the name */
-.highlight {
-  color: #f39c12;
-  font-weight: bold;
-}
+/* Existing CSS code continues... */
+
 /* Skills section styling */
 .skills-section {
   background-color: rgba(255, 255, 255, 0.137);
   border: 1px solid #ccc;
   border-radius: 8px;
-  padding: 20px; /* Keep padding as needed */
-  margin: 20px auto; /* Center container */
+  padding: 20px;
+  margin: 20px auto;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   color: white;
-  max-width: 600px; /* Keep a fixed max-width for the container */
-  overflow: visible; /* Allow overflow */
+  max-width: 600px;
+  overflow: visible;
+
+  /* Animation properties */
+  opacity: 0; /* Start invisible */
+  transform: translateY(20px); /* Start slightly below */
+  animation: fadeIn 0.8s forwards; /* Animation name, duration, and fill mode */
+  animation-delay: 0.5s; /* Delay before animation starts */
+}
+
+/* Keyframes for fade-in animation */
+@keyframes fadeIn {
+  to {
+    opacity: 1; /* Fade to visible */
+    transform: translateY(0); /* Move to original position */
+  }
 }
 
 /* Adjusting the skills category */
 .skills-category {
-  display: flex; /* Use flexbox */
-  flex-direction: column; /* Align items vertically */
-  align-items: center; /* Center items horizontally */
-  justify-content: center; /* Center items vertically */
-  margin-bottom: 30px; /* Decreased bottom margin */
-  max-width: 100%; /* Ensure it doesn't exceed the container */
-  padding: 10px; /* Added padding for spacing */
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center; 
+  margin-bottom: 30px; 
+  max-width: 100%; 
+  padding: 10px; 
+
+  /* Animation for individual skills categories */
+  opacity: 0; /* Start invisible */
+  transform: translateY(20px); /* Start slightly below */
+  animation: fadeIn 0.8s forwards; /* Animation name, duration, and fill mode */
+}
+
+/* Applying staggered animation to each skills category */
+.skills-category:nth-child(1) {
+  animation-delay: 1.0s; /* Delay for the first item */
+}
+.skills-category:nth-child(2) {
+  animation-delay: 1.2s; /* Delay for the second item */
+}
+.skills-category:nth-child(3) {
+  animation-delay: 1.4s; /* Delay for the third item */
 }
 
 /* Center and resize the images inside the skills category */
-/* Skills category image with popup animation */
 .skills-category img {
-  width: 250px;  /* Set the desired width for images */
-  height: auto;  /* Maintain aspect ratio */
-  margin: 10px 0; /* Space between images */
-  position: relative; /* Positioning context */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition for popup effect */
+  width: 250px; 
+  height: auto; 
+  margin: 10px 0; 
+  position: relative; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
 
 /* Popup effect on hover */
 .skills-category img:hover {
-  transform: scale(1.1); /* Scale image on hover */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
+  transform: scale(1.1); 
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); 
 }
-
 
 /* Contact section styling */
 .contact-section {
@@ -194,6 +243,7 @@ body {
   text-align: center;
   backdrop-filter: blur(5px);
   max-width: 400px;
+  animation: fadeIn 0.8s forwards; /* Keep the animation */
 }
 
 .contact-section h2 {
@@ -264,6 +314,7 @@ body {
   margin: 20px;
 }
 
+/* Project container styling with falling effect */
 .project-container {
   background-color: rgba(255, 255, 255, 0.337);
   border: 1px solid #ccc;
@@ -274,53 +325,76 @@ body {
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  /* Falling animation properties */
+  opacity: 0; /* Start invisible */
+  transform: translateY(-20px); /* Start slightly above */
+  animation: fall 0.8s forwards; /* Animation name, duration, and fill mode */
 }
 
-.project-container:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+/* Keyframes for falling animation */
+@keyframes fall {
+  to {
+    opacity: 1; /* Fade to visible */
+    transform: translateY(0); /* Move to original position */
+  }
 }
 
-.project-title {
-  font-size: 1.5em;
-  color: rgb(255, 255, 255);
-  margin-bottom: 10px;
+/* Applying staggered animation to each project container */
+.project-container:nth-child(1) {
+  animation-delay: 0.5s; /* Delay for the first item */
 }
-
-.project-description {
-  font-size: 1em;
-  color: rgb(255, 252, 252);
-  text-align: justify;
-  margin-bottom: 10px;
+.project-container:nth-child(2) {
+  animation-delay: 0.7s; /* Delay for the second item */
 }
-
+.project-container:nth-child(3) {
+  animation-delay: 0.9s; /* Delay for the third item */
+}
+/* View button styling */
 .view-button {
   display: inline-block;
-  background-color: #f39c12;
-  color: white;
-  padding: 10px 15px;
-  border-radius: 5px;
-  text-decoration: none;
-  margin-top: 10px;
-  cursor: default;
+  background-color: #f39c12; /* Orange background */
+  color: white; /* White text */
+  padding: 10px 15px; /* Padding around text */
+  border-radius: 5px; /* Rounded corners */
+  text-decoration: none; /* Remove underline */
+  margin-top: 10px; /* Space above the button */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth transition */
 }
 
+/* Source button styling */
 .source-button {
   display: inline-block;
-  background-color: #2ecc71;
-  color: white;
-  padding: 10px 15px;
-  border-radius: 5px;
-  text-decoration: none;
-  margin-top: 10px;
-  margin-left: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  background-color: #2ecc71; /* Green background */
+  color: white; /* White text */
+  padding: 10px 15px; /* Padding around text */
+  border-radius: 5px; /* Rounded corners */
+  text-decoration: none; /* Remove underline */
+  margin-top: 10px; /* Space above the button */
+  margin-left: 10px; /* Space between buttons */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+/* Button hover effects */
+.view-button:hover {
+  background-color: #e67e22; /* Darker orange on hover */
 }
 
 .source-button:hover {
-  background-color: #27ae60;
+  background-color: #27ae60; /* Darker green on hover */
 }
+
+/* Responsive design for buttons */
+@media (max-width: 768px) {
+  .view-button,
+  .source-button {
+    width: 100%; /* Full width on smaller screens */
+    margin: 5px 0; /* Space between buttons */
+  }
+}
+
 
 /* Footer styling */
 .footer {
@@ -468,4 +542,48 @@ body {
     width: 90%;
     margin: 10px auto;
   }
+}
+/* Fade-in and fade-out animation classes */
+.fade-in {
+  animation: fadeIn 0.5s ease-in forwards;
+}
+
+.fade-out {
+  animation: fadeOut 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Add these properties to your existing sections for fade-in effect */
+.about-section,
+.skills-section,
+.contact-section,
+.projects-section {
+  opacity: 0; /* Start invisible */
+  transform: translateY(20px); /* Start slightly below */
+}
+
+/* Use the existing fadeIn keyframes for the sections */
+.about-section.fade-in,
+.skills-section.fade-in,
+.contact-section.fade-in,
+.projects-section.fade-in {
+  opacity: 1; /* Fade to visible */
+  transform: translateY(0); /* Move to original position */
 }

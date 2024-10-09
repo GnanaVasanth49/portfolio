@@ -160,7 +160,7 @@ function App() {
               </p>
             </div>
           ) : currentSection === 'skills' ? (
-            <div className="skills-section">
+            <div className={`skills-section ${currentSection === 'skills' ? 'fade-in' : 'fade-out'}`}>
               <h2>SKILLS</h2>
 
               {/* Languages Section */}
@@ -178,7 +178,7 @@ function App() {
               </div>
             </div>
           ) : currentSection === 'projects' ? ( // Projects section
-            <div className="projects-section">
+            <div className={`projects-section ${currentSection === 'projects' ? 'fade-in' : 'fade-out'}`}>
               <div className="project-container">
                 <h3 style={{ color: 'white' }}>CALCULATOR</h3>
                 <p style={{ color: 'white' }}>
